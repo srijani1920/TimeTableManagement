@@ -1,9 +1,10 @@
 const express=require("express");
 const bodyParser=require("body-parser");
 const mongoose=require("mongoose");
-var Data;
+var Subject;
 
 const app=express();
+mongoose.set('strictQuery', false);
 
 app.set('view engine',"ejs");
 
@@ -19,10 +20,11 @@ async function main() {
   const timetableSchema=new mongoose.Schema({
   subname:String,
   fname:String,
+  subcode:String,
   classes:Number
 
 });
- Data=mongoose.model("Data",timetableSchema);
+ Subject=mongoose.model("Subject",timetableSchema);
 }
 
 app.get("/",function(req,res){
@@ -31,11 +33,13 @@ app.get("/",function(req,res){
 app.post("/",function(req,res){
   const subjectName=req.body.subname;
   const facultyName=req.body.fname;
+  const subjectCode=req.body.subcode;
   const classesPerWeek=req.body.classes;
 
-  const newData=new Data({
+  const newSubject=new Subject({
     subname:subjectName,
     fname:facultyName,
+    subcode:subjectCode,
     classes:classesPerWeek
   });
   newData.save(function(err){
@@ -45,15 +49,16 @@ app.post("/",function(req,res){
       res.send(err);
     }
   });
-  console.log(subjectName + " " + facultyName + " " + classesPerWeek);
+  console.log(subjectName + " " + facultyName + " " + subcode + " " + classesPerWeek);
   console.log("Form accepted");
 });
 app.post("/delete",function(req,res){
   const subjectName=req.body.subname;
   const facultyName=req.body.fname;
+  const subjectCode=req.body.subcode;
   const classesPerWeek=req.body.classes;
 
-  Data.findByIdAndRemove(subjectName,function(err){
+  Subject.findByIdAndRemove(subjectName,function(err){
     if(!err){
       console.log("Successfully deleted the data");
     }
