@@ -11568,10 +11568,6 @@ a {
     text-decoration: none;
 }
 
-a:hover {
-    color:  rgb(112, 25, 252);
-}
-
 
 .collapsible {
   margin-top: 10px;
