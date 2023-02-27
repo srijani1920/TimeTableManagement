@@ -260,49 +260,6 @@ pre code {
   color: inherit;
   word-break: normal;
 }
-/* 
-code {
-  font-size: 0.875em;
-  color: #d63384;
-  word-wrap: break-word;
-}
-a > code {
-  color: inherit;
-}
-
-kbd {
-  padding: 0.2rem 0.4rem;
-  font-size: 0.875em;
-  color: #fff;
-  background-color: #212529;
-  border-radius: 0.2rem;
-}
-kbd kbd {
-  padding: 0;
-  font-size: 1em;
-  font-weight: 700;
-}
-
-figure {
-  margin: 0 0 1rem;
-}
-
-img,
-svg {
-  vertical-align: middle;
-}
-
-table {
-  caption-side: bottom;
-  border-collapse: collapse;
-}
-
-caption {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  color: #6c757d;
-  text-align: left;
-} */
 
 th {
   text-align: inherit;
@@ -428,14 +385,6 @@ legend + * {
   -webkit-appearance: textfield;
 }
 
-/* rtl:raw:
-[type="tel"],
-[type="url"],
-[type="email"],
-[type="number"] {
-  direction: ltr;
-}
-*/
 ::-webkit-search-decoration {
   -webkit-appearance: none;
 }
@@ -11410,6 +11359,7 @@ html {
   padding: 1.25rem 2.5rem;
 }
 
+
 .callout {
   padding: 15rem 0;
   background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%), url("../assets/img/bg-callout.jpg");
@@ -11597,8 +11547,16 @@ input[type="text"]:focus {
     margin: 15px auto;
 }
 
+#add_more_fields:hover {
+  color: #1D809F;
+}
+
 #remove_fields {
     float: right;
+}
+
+#remove_fields:hover {
+  color: #1D809F;
 }
 
 .controls a i.fa-minus {
@@ -11614,17 +11572,30 @@ a:hover {
     color:  rgb(112, 25, 252);
 }
 
-#submit_button {
-    color: white;
-    background-color: rgb(112, 25, 252);
-    border: none;
-    border-radius: 15px;
-    padding-right: 15px;
-    padding-left: 15px;
-    padding-top: 6px;
-    padding-bottom: 6px;
+
+.collapsible {
+  margin-top: 10px;
+  background: white;
+  box-shadow: 0px 10px 40px 0px rgba(47, 47, 47, .1);
+  border-radius: 5px;
+  color: #1D809F;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
 }
 
-#submit_button:hover {
-    background-color: rgb(84, 20, 187);
+.active, .collapsible:hover {
+  background-color: #1D809F;
+  color: white
+}
+
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #e2f4fa;
 }
