@@ -11435,6 +11435,33 @@ footer.footer .social-link:hover {
     font-size: 5.5rem;
   }
 }
+.adminhead {
+  min-height: 30rem;
+  position: relative;
+  display: table;
+  width: 100%;
+  height: auto;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%), url("../assets/img/bg-adminhead.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.adminhead h1, .adminhead .h1 {
+  font-size: 4rem;
+  margin: 0;
+  padding: 0;
+}
+@media (min-width: 992px) {
+  .adminhead {
+    height: 100vh;
+  }
+  .adminhead h1, .adminhead .h1 {
+    font-size: 5.5rem;
+  }
+}
+
 
 .portfolio-item {
   display: block;
@@ -11491,13 +11518,13 @@ footer.footer .social-link:hover {
             clip-path: inset(-1px);
   }
   .portfolio-item:hover img {
-    -webkit-clip-path: inset(2rem);
-            clip-path: inset(2rem);
+    -webkit-clip-path: inset(1rem);
+            clip-path: inset(1rem);
   }
   .portfolio-item:hover .caption {
     background-color: rgba(29, 128, 159, 0.9);
-    -webkit-clip-path: inset(2rem);
-            clip-path: inset(2rem);
+    -webkit-clip-path: inset(1rem);
+            clip-path: inset(1rem);
   }
 }
 
