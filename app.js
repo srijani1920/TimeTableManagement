@@ -30,7 +30,13 @@ async function main() {
 app.get("/",function(req,res){
   res.sendFile(__dirname+"/index.html");
 });
-app.post("/",function(req,res){
+app.get("/admin",function(req,res){
+  res.sendFile(__dirname+"/admin-panel.html");
+});
+app.get("/subjectdetails",function(req,res){
+  res.sendFile(__dirname+"/subject-details.html");
+});
+app.post("/subjectdetails",function(req,res){
   const subjectName=req.body.subname;
   const facultyName=req.body.fname;
   const subjectCode=req.body.subcode;
@@ -42,29 +48,30 @@ app.post("/",function(req,res){
     subcode:subjectCode,
     classes:classesPerWeek
   });
-  newData.save(function(err){
+  newSubject.save(function(err){
     if(!err){
       res.send("Sucessfully added new articles");
     }else{
       res.send(err);
     }
   });
-  console.log(subjectName + " " + facultyName + " " + subcode + " " + classesPerWeek);
+  console.log(subjectName + " " + facultyName + " " + subjectCode +" " + classesPerWeek);
   console.log("Form accepted");
+  
 });
-app.post("/delete",function(req,res){
-  const subjectName=req.body.subname;
-  const facultyName=req.body.fname;
-  const subjectCode=req.body.subcode;
-  const classesPerWeek=req.body.classes;
-
-  Subject.findByIdAndRemove(subjectName,function(err){
-    if(!err){
-      console.log("Successfully deleted the data");
-    }
-    res.redirect("/");
-  });
-});
+// app.post("/delete",function(req,res){
+//   const subjectName=req.body.subname;
+//   const facultyName=req.body.fname;
+//   const subjectCode=req.body.subcode;
+//   const classesPerWeek=req.body.classes;
+//
+//   Subject.findByIdAndRemove(subjectName,function(err){
+//     if(!err){
+//       console.log("Successfully deleted the data");
+//     }
+//     res.redirect("/");
+//   });
+// });
 
 app.listen(3000,function(){
   console.log("Server running at port 3000");
