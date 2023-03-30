@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecturer Details Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="public/css/styles.css" rel="stylesheet" />
+
+</head>
+
+<body>
+    <section class="p-5">
+        <div class="wrapper">
+            <form action="" method="post">
+                <div class="container px-2">
+                    <h3 class="my-4 text-center" style="color: #1D809F;">Add Lecturer</h3>
+                    <div id="survey_options">
+                        <input type="text" name="subname" class="survey_options" size="50" placeholder="Lecturer Name">
+                        <input type="text" name="fname" class="survey_options" size="50" placeholder="Lecturer ID">
+                        <input type="text" name="subcode" class="survey_options" size="50" placeholder="Department">
+                    </div>
+                    <div class="controls">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <a href="#" id="add_more_fields"><i class="fa fa-plus"></i>Add</a>
+                            </div>
+                            <div class="col">
+                                <button class="btn btn-primary btn-l" id="submit_button" type="submit">Submit</button>
+                            </div>
+                            <div class="col">
+                                <a href="#" id="remove_fields"><i class="fa fa-plus"></i>Remove</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+<script>
+    //subject-details form actions
+    var survey_options = document.getElementById('survey_options');
+    var add_more_fields = document.getElementById('add_more_fields');
+    var remove_fields = document.getElementById('remove_fields');
+    //add new fields to subject details
+    add_more_fields.onclick = function () {
+
+        var newField = document.createElement('br');
+
+        survey_options.appendChild(newField);
+
+        var newField = document.createElement('input');
+        newField.setAttribute('type', 'text');
+        newField.setAttribute('name', 'survey_options[]');
+        newField.setAttribute('class', 'survey_options');
+        newField.setAttribute('siz', 50);
+        newField.setAttribute('placeholder', 'Lecturer Name');
+        survey_options.appendChild(newField);
+
+        var newField = document.createElement('input');
+        newField.setAttribute('type', 'text');
+        newField.setAttribute('name', 'survey_options[]');
+        newField.setAttribute('class', 'survey_options');
+        newField.setAttribute('siz', 50);
+        newField.setAttribute('placeholder', 'Lecturer ID');
+        survey_options.appendChild(newField);
+
+        var newField = document.createElement('input');
+        newField.setAttribute('type', 'text');
+        newField.setAttribute('name', 'survey_options[]');
+        newField.setAttribute('class', 'survey_options');
+        newField.setAttribute('siz', 50);
+        newField.setAttribute('placeholder', 'Department');
+        survey_options.appendChild(newField);
+    }
+    //remove field from subject details
+    remove_fields.onclick = function () {
+        var input_tags = survey_options.getElementsByTagName('input');
+        if (input_tags.length > 3) {
+            for (i = 0; i < 3; i++) {
+                survey_options.removeChild(input_tags[(input_tags.length) - 1]);
+            }
+        }
+    };
+
+
+
+
+</script>
+
+</html>
