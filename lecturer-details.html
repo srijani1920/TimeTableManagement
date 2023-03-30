@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecturer Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Simple line icons-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css"
+        rel="stylesheet" />
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic"
+        rel="stylesheet" type="text/css" />
+    <!-- Stylesheet -->
+    <link href="public/css/styles.css" rel="stylesheet" />
+
+</head>
+
+<body id="page-top">
+    <header class="pagehead d-flex align-items-center">
+        <div class="container px-4 px-lg-5 text-center">
+            <h1 class="mb-1">Lecturer</h1>
+            <h4 class="mb-5"><em>Create, Update and Modify Lecturer Details</em></h4>
+            <a class="btn btn-primary btn-xl" href="lecturer-form.html">Create</a>
+        </div>
+    </header>
+    <section class="content-section bg-light" id="pagebody">
+        <div class="container px-4 px-lg-5">
+            <table class="table" id="lecturer-table">
+                <thead>
+                    <tr>
+                        <th scope="col">Lecturer</th>
+                        <th scope="col">Lecturer ID</th>
+                        <th scope="col">Department</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td contenteditable="true">Lecturer1</td>
+                        <td contenteditable="true">ID1</td>
+                        <td contenteditable="true">Dep1</td>
+                        <td><button class="btn btn-danger btn-sm delete-btn">Delete</button></td>
+                    </tr>
+                    <tr>
+                        <td contenteditable="true">Lecturer2</td>
+                        <td contenteditable="true">ID2</td>
+                        <td contenteditable="true">Dep2</td>
+                        <td><button class="btn btn-danger btn-sm delete-btn">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <a class="btn btn-primary justify-content-center" id="addBtn" href="lecturer-form.html">Add Data</a>
+        </div>
+    </section>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+</body>
+<script>
+
+    // Get all the delete buttons
+const deleteButtons = document.querySelectorAll(".delete-btn");
+
+// Add an event listener to each delete button
+deleteButtons.forEach((button) => {
+  button.addEventListener("click", (event) => {
+    // Get the parent row of the clicked button
+    const row = event.target.parentNode.parentNode;
+    
+    // Remove the parent row from the table
+    row.parentNode.removeChild(row);
+  });
+});
+</script>
+
+</html>
