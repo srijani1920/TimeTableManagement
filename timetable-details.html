@@ -33,33 +33,51 @@
     </header>
     <section class="content-section bg-light" id="pagebody">
         <div class="container px-4 px-lg-5">
-            <table class="table table-striped">
+            <table class="table table-striped" id="lecturer-table">
                 <thead>
                     <tr>
                         <th scope="col">Period</th>
                         <th scope="col">Subject</th>
                         <th scope="col">Subject Code</th>
                         <th scope="col">Faculty</th>
+                        <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <th scope="row">1</th>
-                        <td>Sub1</td>
-                        <td>Code1</td>
-                        <td>Faculty1</td>
+                        <td contenteditable="true">Sub1</td>
+                        <td contenteditable="true">Code1</td>
+                        <td contenteditable="true">Faculty1</td>
+                        <td><button class="btn btn-danger btn-sm delete-btn">Delete</button></td>
                     </tr>
                     <tr>
                         <th scope="row">2</th>
-                        <td>Sub2</td>
-                        <td>Code2</td>
-                        <td>Faculty2</td>
+                        <td contenteditable="true">Sub2</td>
+                        <td contenteditable="true">Code2</td>
+                        <td contenteditable="true">Faculty2</td>
+                        <td><button class="btn btn-danger btn-sm delete-btn">Delete</button></td>
                     </tr>
                     <tr>
                         <th scope="row">3</th>
-                        <td>Sub3</td>
-                        <td>Code3</td>
-                        <td>Faculty3</td>
+                        <td contenteditable="true">Sub3</td>
+                        <td contenteditable="true">Code3</td>
+                        <td contenteditable="true">Faculty3</td>
+                        <td><button class="btn btn-danger btn-sm delete-btn">Delete</button></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">4</th>
+                        <td contenteditable="true">Sub4</td>
+                        <td contenteditable="true">Code4</td>
+                        <td contenteditable="true">Faculty4</td>
+                        <td><button class="btn btn-danger btn-sm delete-btn">Delete</button></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">5</th>
+                        <td contenteditable="true">Sub5</td>
+                        <td contenteditable="true">Code5</td>
+                        <td contenteditable="true">Faculty5</td>
+                        <td><button class="btn btn-danger btn-sm delete-btn">Delete</button></td>
                     </tr>
                 </tbody>
             </table>
@@ -73,5 +91,20 @@
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
 </body>
+<script>
 
+    // Get all the delete buttons
+const deleteButtons = document.querySelectorAll(".delete-btn");
+
+// Add an event listener to each delete button
+deleteButtons.forEach((button) => {
+  button.addEventListener("click", (event) => {
+    // Get the parent row of the clicked button
+    const row = event.target.parentNode.parentNode;
+    
+    // Remove the parent row from the table
+    row.parentNode.removeChild(row);
+  });
+});
+</script>
 </html>
