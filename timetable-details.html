@@ -20,6 +20,109 @@
         rel="stylesheet" type="text/css" />
     <!-- Stylesheet -->
     <link href="public/css/styles.css" rel="stylesheet" />
+    <style>
+        #selector {
+            background-color: rgba(29, 128, 159, 0.9);
+            ;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        #selector label {
+            margin: 5px;
+            padding-left: 20px;
+            font-weight: bold;
+        }
+
+        #selector select {
+            padding: 5px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: rgb(248, 222, 136);
+            color: black;
+            font-weight: bold;
+            align-items: center;
+        }
+
+        #search-btn {
+            background-color: rgb(248, 222, 136);
+            color: black;
+            margin-right: 15px;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        #search-btn:hover {
+            background-color: rgb(245, 190, 9);
+            ;
+            transition: 300ms;
+        }
+
+        .card {
+            border-radius: 5px;
+            border: none;
+            box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            text-align: center;
+            border: 1px solid #fff;
+            /* thin white border */
+        }
+
+        th {
+            background-color: rgba(29, 128, 159, 0.9);
+            color: #fff;
+        }
+
+        td:nth-child(even) {
+            background-color: rgba(29, 128, 159, 0.3);
+        }
+
+        td:nth-child(odd) {
+            background-color: rgba(236, 184, 7, 0.3);
+        }
+
+        tr {
+            border-bottom: 7px solid #fff;
+            /* thicker white border between rows */
+        }
+
+        table td:nth-child(4) {
+            /* styling for short-break */
+            background-color: #fff
+        }
+
+        table td:nth-child(5) {
+            /* styling for exception column */
+            background-color: rgba(29, 128, 159, 0.3);
+        }
+
+        table td:nth-child(6) {
+            /* styling for exception column */
+            background-color: rgba(236, 184, 7, 0.3);
+        }
+
+        table td:nth-child(7) {
+            /* styling for long-break */
+            background-color: #fff
+        }
+    </style>
 
 </head>
 
@@ -33,55 +136,111 @@
     </header>
     <section class="content-section bg-light" id="pagebody">
         <div class="container px-4 px-lg-5">
-            <table class="table table-striped" id="lecturer-table">
-                <thead>
-                    <tr>
-                        <th scope="col">Period</th>
-                        <th scope="col">Subject</th>
-                        <th scope="col">Subject Code</th>
-                        <th scope="col">Faculty</th>
-                        <th scope="col">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td contenteditable="true">Sub1</td>
-                        <td contenteditable="true">Code1</td>
-                        <td contenteditable="true">Faculty1</td>
-                        <td><button class="btn btn-danger btn-sm delete-btn">Delete</button></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td contenteditable="true">Sub2</td>
-                        <td contenteditable="true">Code2</td>
-                        <td contenteditable="true">Faculty2</td>
-                        <td><button class="btn btn-danger btn-sm delete-btn">Delete</button></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td contenteditable="true">Sub3</td>
-                        <td contenteditable="true">Code3</td>
-                        <td contenteditable="true">Faculty3</td>
-                        <td><button class="btn btn-danger btn-sm delete-btn">Delete</button></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">4</th>
-                        <td contenteditable="true">Sub4</td>
-                        <td contenteditable="true">Code4</td>
-                        <td contenteditable="true">Faculty4</td>
-                        <td><button class="btn btn-danger btn-sm delete-btn">Delete</button></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">5</th>
-                        <td contenteditable="true">Sub5</td>
-                        <td contenteditable="true">Code5</td>
-                        <td contenteditable="true">Faculty5</td>
-                        <td><button class="btn btn-danger btn-sm delete-btn">Delete</button></td>
-                    </tr>
-                </tbody>
-            </table>
-            <a class="btn btn-primary justify-content-center" href="#">Add Data</a>
+            <div id="selector">
+                <label for="department-select">Department:</label>
+                <select id="department-select">
+                    <option value="cse">Computer Science and Engineering (CSE)</option>
+                    <option value="it">Information Technology (IT)</option>
+                    <option value="ece">Electronics and Communications (ECE)</option>
+                    <option value="ee">Electrical Engineering (EE)</option>
+                    <option value="ai-ml">Artificial Intelligence & Machine Learning (AI/ML)</option>
+                </select>
+
+                <label for="semester-select">Semester:</label>
+                <select id="semester-select">
+                    <option value="1">1st</option>
+                    <option value="2">2nd</option>
+                    <option value="3">3rd</option>
+                    <option value="4">4th</option>
+                    <option value="5">5th</option>
+                    <option value="6">6th</option>
+                    <option value="7">7th</option>
+                    <option value="8">8th</option>
+                </select>
+                <button id="search-btn">Search</button>
+            </div>
+            <div class="card p-3">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Day</th>
+                            <th>09:30AM-10:30AM</th>
+                            <th>10:30AM-11:30AM</th>
+                            <th>Short Break</th>
+                            <th>11:45AM-12:45PM</th>
+                            <th>12:45PM-01:45PM</th>
+                            <th>Long Break</th>
+                            <th>02:30PM-03:30PM</th>
+                            <th>03:30PM-04:30PM</th>
+                            <th>04:30PM-05:30PM</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Monday</th>
+                            <td>Subject 1<br>Faculty 1</td>
+                            <td>Subject 2<br>Faculty 2</td>
+                            <td></td>
+                            <td>Subject 3<br>Faculty 3</td>
+                            <td>Subject 4<br>Faculty 4</td>
+                            <td></td>
+                            <td>Subject 5<br>Faculty 5</td>
+                            <td>Subject 6<br>Faculty 6</td>
+                            <td>Subject 7<br>Faculty 7</td>
+                        </tr>
+                        <tr>
+                            <th>Tuesday</th>
+                            <td>Subject 1<br>Faculty 1</td>
+                            <td>Subject 2<br>Faculty 2</td>
+                            <td></td>
+                            <td>Subject 3<br>Faculty 3</td>
+                            <td>Subject 4<br>Faculty 4</td>
+                            <td></td>
+                            <td>Subject 5<br>Faculty 5</td>
+                            <td>Subject 6<br>Faculty 6</td>
+                            <td>Subject 7<br>Faculty 7</td>
+                        </tr>
+                        <tr>
+                            <th>Wednesday</th>
+                            <td>Subject 1<br>Faculty 1</td>
+                            <td>Subject 2<br>Faculty 2</td>
+                            <td></td>
+                            <td>Subject 3<br>Faculty 3</td>
+                            <td>Subject 4<br>Faculty 4</td>
+                            <td></td>
+                            <td>Subject 5<br>Faculty 5</td>
+                            <td>Subject 6<br>Faculty 6</td>
+                            <td>Subject 7<br>Faculty 7</td>
+                        </tr>
+                        <tr>
+                            <th>Thursday</th>
+                            <td>Subject 1<br>Faculty 1</td>
+                            <td>Subject 2<br>Faculty 2</td>
+                            <td></td>
+                            <td>Subject 3<br>Faculty 3</td>
+                            <td>Subject 4<br>Faculty 4</td>
+                            <td></td>
+                            <td>Subject 5<br>Faculty 5</td>
+                            <td>Subject 6<br>Faculty 6</td>
+                            <td>Subject 7<br>Faculty 7</td>
+                        </tr>
+                        <tr>
+                            <th>Friday</th>
+                            <td>Subject 1<br>Faculty 1</td>
+                            <td>Subject 2<br>Faculty 2</td>
+                            <td></td>
+                            <td>Subject 3<br>Faculty 3</td>
+                            <td>Subject 4<br>Faculty 4</td>
+                            <td></td>
+                            <td>Subject 5<br>Faculty 5</td>
+                            <td>Subject 6<br>Faculty 6</td>
+                            <td>Subject 7<br>Faculty 7</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <a class="btn btn-primary justify-content-center my-4" href="#">Add Data</a>
         </div>
     </section>
     <!-- Scroll to Top Button-->
@@ -91,20 +250,5 @@
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
 </body>
-<script>
 
-    // Get all the delete buttons
-const deleteButtons = document.querySelectorAll(".delete-btn");
-
-// Add an event listener to each delete button
-deleteButtons.forEach((button) => {
-  button.addEventListener("click", (event) => {
-    // Get the parent row of the clicked button
-    const row = event.target.parentNode.parentNode;
-    
-    // Remove the parent row from the table
-    row.parentNode.removeChild(row);
-  });
-});
-</script>
 </html>
