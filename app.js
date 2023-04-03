@@ -6,6 +6,7 @@ var Lecturer;
 var TimeTable;
 
 const app=express();
+app.set('view engine',"ejs");
 mongoose.set('strictQuery', false);
 
 app.set('view engine',"ejs");
@@ -106,7 +107,17 @@ app.get("/subjectdetails",function(req,res){
   res.sendFile(__dirname+"/subject-details.html");
 });
 app.get("/lecturerdetails",function(req,res){
-  res.sendFile(__dirname+"/lecturer-details.html");
+  Lecturer.find({},function(err,foundData){
+    if(!err){
+      if(foundData){
+        res.render("lecturer-details",{teacherData:foundData});
+      }
+    }else{
+      console.log(err);
+    }
+
+  });
+
 });
 app.get("/lecturerform",function(req,res){
   res.sendFile(__dirname+"/lecturer-form.html");
@@ -285,6 +296,10 @@ app.post("/form",function(req,res){
   console.log("Form accepted");
 
 });
+app.get("/delete",function(req,res){
+  teachername=req.body.tid;
+  console.log(teachername);
+})
 // app.post("/delete",function(req,res){
 //   const subjectName=req.body.subname;
 //   const facultyName=req.body.fname;
