@@ -131,7 +131,7 @@ app.post("/subjectdetails",function(req,res){
   });
   newSubject.save(function(err){
     if(!err){
-      res.send("Sucessfully added new articles");
+      res.sendFile(__dirname+"/success/successsubject.html");
     }else{
       res.send(err);
     }
@@ -152,7 +152,7 @@ app.post("/lecturerform",function(req,res){
   });
   newLecturer.save(function(err){
     if(!err){
-      res.send("Sucessfully added new articles");
+    res.sendFile(__dirname+"/success/successlecture.html");
     }else{
       res.send(err);
     }
@@ -277,7 +277,7 @@ app.post("/form",function(req,res){
 
   newTimeTable.save(function(err){
     if(!err){
-      res.send("Sucessfully added new articles");
+      res.sendFile(__dirname+"/success/successstimetable.html");
     }else{
       res.send(err);
     }
