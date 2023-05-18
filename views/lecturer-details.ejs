@@ -45,15 +45,20 @@
                 <tbody>
                   <% teacherData.forEach(function(item){%>
 
+     <form action="/delete" method="post">
+
 
                     <tr>
                         <td contenteditable="true"><%=item.lname%></td>
                         <td contenteditable="true"><%=item.lid%></td>
                         <td contenteditable="true"><%=item.ldept%></td>
-                        <td><button class="btn btn-danger btn-sm delete-btn"  >Delete</button></td>
+                        <td><button class="btn btn-danger btn-sm delete-btn" type="submit" value="<%=item.lid%>" name="tid" onclick="this.form.submit()">Delete</button></td>
 
 
                     </tr>
+                    <input  type="hidden" name="tid" value="<%=item.lid%>"></input>
+
+                  </form>
 
                     <%  })%>
                     <%# <tr>

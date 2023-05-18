@@ -296,9 +296,21 @@ app.post("/form",function(req,res){
   console.log("Form accepted");
 
 });
-app.get("/delete",function(req,res){
-  teachername=req.body.tid;
-  console.log(teachername);
+app.post("/delete",function(req,res){
+  teacherID=req.body.tid;
+
+
+  Lecturer.findOneAndDelete({lid:teacherID},function(err){
+    if(!err){
+      console.log("Successfully deleted item");
+      res.redirect("/lecturerdetails");
+    }else{
+      console.log(err);
+    }
+
+  })
+  console.log(teacherID);
+
 })
 // app.post("/delete",function(req,res){
 //   const subjectName=req.body.subname;
