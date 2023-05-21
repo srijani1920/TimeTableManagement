@@ -112,36 +112,18 @@
                 <!-- One "tab" for each step in the form: -->
                 <div class="tab">
                     <h5 class="mt-5 mb-3" style="color: #1D809F; font-weight: 500;">Department & Semester</h5>
-                    <select id="form-select" class="mt-3 mb-2">
-                        <option value="" disabled selected hidden name="dept">Department</option>
-                        <option value="cse"name="dept1">Computer Science and Engineering (CSE)</option>
-                        <option value="it"name="dept2">Information Technology (IT)</option>
-                        <option value="ece"name="dept3">Electronics and Communications (ECE)</option>
-                        <option value="ee"name="dept4">Electrical Engineering (EE)</option>
-                        <option value="ai-ml"name="dept5">Artificial Intelligence & Machine Learning (AI/ML)</option>
-                    </select>
-                    <select id="form-select" class="mt-2 mb-3">
-                        <option value="" disabled selected hidden name="sem">Semester</option>
-                        <option value="1"name="sem1">1st</option>
-                        <option value="2"name="sem2">2nd</option>
-                        <option value="3"name="sem3">3rd</option>
-                        <option value="4"name="sem4">4th</option>
-                        <option value="5"name="sem5">5th</option>
-                        <option value="6"name="sem6">6th</option>
-                        <option value="7"name="sem7">7th</option>
-                        <option value="8"name="sem8">8th</option>
-                    </select>
+                    <p>
+                        <input placeholder="Department" oninput="this.className = ''" name="dept">
+                    </p>
+                    <p>
+                        <input placeholder="Semester" oninput="this.className = ''" name="sem">
+                    </p>
                 </div>
                 <div class="tab">
                     <h5 class="mt-5 mb-3" style="color: #1D809F; font-weight: 500;">Class Details</h5>
-                    <select id="form-select" class="my-2">
-                        <option value="" disabled selected hidden name="day">Day</option>
-                        <option value="Monday"name="day1">Monday</option>
-                        <option value="Tuesday"name="day2">Tuesday</option>
-                        <option value="Wednesday"name="day3">Wednesday</option>
-                        <option value="Thursday"name="day4">Thursday</option>
-                        <option value="Friday"name="day5 ">Friday</option>
-                    </select>
+                    <p>
+                        <input placeholder="Day" oninput="this.className = ''" name="day">
+                    </p>
                     <div class="card p-3 mx-0 mt-2 mb-5">
                         <div class="row px-3 my-1">
                             <div class="col-2 mx-0 px-0 align-items-center"
