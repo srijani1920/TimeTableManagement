@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lecturer Details</title>
+    <title>Subject Details</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- Favicon-->
@@ -26,9 +26,9 @@
 <body id="page-top">
     <header class="pagehead d-flex align-items-center">
         <div class="container px-4 px-lg-5 text-center">
-            <h1 class="mb-1">Lecturer</h1>
-            <h4 class="mb-5"><em>Create, Update and Modify Lecturer Details</em></h4>
-            <a class="btn btn-primary btn-xl" href="lecturer-form.html">Create</a>
+            <h1 class="mb-1">Subject Details</h1>
+            <h4 class="mb-5"><em>Create, Update and Modify Subject Details</em></h4>
+            <a class="btn btn-primary btn-xl" href="subject-details-form.html">Create</a>
         </div>
     </header>
     <section class="content-section bg-light" id="pagebody">
@@ -36,40 +36,31 @@
             <table class="table" id="lecturer-table">
                 <thead>
                     <tr>
-                        <th scope="col">Lecturer</th>
+                        <th scope="col">Subject Name</th>
+                        <th scope="col">Subject Code</th>
                         <th scope="col">Lecturer ID</th>
-                        <th scope="col">Department</th>
-                        <th scope="col">Action</th>
+                        <th scope="col">Classes/Week</th>
                     </tr>
                 </thead>
                 <tbody>
-                  <% teacherData.forEach(function(item){%>
-
-     <form action="/deletelecturer" method="post">
+                    <% subjectData.forEach(function(item){%>
+                      <form  action="deletesubject" method="post">
 
 
                     <tr>
-                        <td contenteditable="true"><%=item.lname%></td>
-                        <td contenteditable="true"><%=item.lid%></td>
-                        <td contenteditable="true"><%=item.ldept%></td>
-                        <td><button class="btn btn-danger btn-sm delete-btn" type="submit" value="<%=item.lid%>" name="tid" onclick="this.form.submit()">Delete</button></td>
-
-
+                        <td contenteditable="true"><%=item.subname%></td>
+                        <td contenteditable="true"><%=item.fname%></td>
+                        <td contenteditable="true"><%=item.subcode%></td>
+                        <td contenteditable="true"><%=item.classes%></td>
+                        <td><button class="btn btn-danger btn-sm delete-btn"type="submit"onclick="this.form.submit()">Delete</button></td>
                     </tr>
-                    <input  type="hidden" name="tid" value="<%=item.lid%>"></input>
+                    <input type="hidden" name="sid" value="<%=item.subcode%>">
+                    </form>
+                        <%  })%>
 
-                  </form>
-
-                    <%  })%>
-                    <%# <tr>
-                        <td contenteditable="true">Lecturer2</td>
-                        <td contenteditable="true">ID2</td>
-                        <td contenteditable="true">Dep2</td>
-                        <td><button class="btn btn-danger btn-sm delete-btn">Delete</button></td>
-                    </tr>  %>
                 </tbody>
             </table>
-            <a class="btn btn-primary justify-content-center" id="addBtn" href="/lecturerform">Add Data</a>
+            <a class="btn btn-primary justify-content-center" id="addBtn" href="/subjectdetailsform">Add Data</a>
         </div>
     </section>
     <!-- Scroll to Top Button-->
