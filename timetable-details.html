@@ -136,9 +136,9 @@
     </header>
     <section class="content-section bg-light" id="pagebody">
         <div class="container px-4 px-lg-5">
-            <div id="selector">
+            <form id="selector" method="get">
                 <label for="department-select">Department:</label>
-                <select id="department-select">
+                <select id="department-select" name="dept">
                     <option value="cse">Computer Science and Engineering (CSE)</option>
                     <option value="it">Information Technology (IT)</option>
                     <option value="ece">Electronics and Communications (ECE)</option>
@@ -147,7 +147,7 @@
                 </select>
 
                 <label for="semester-select">Semester:</label>
-                <select id="semester-select">
+                <select id="semester-select" name="sem">
                     <option value="1">1st</option>
                     <option value="2">2nd</option>
                     <option value="3">3rd</option>
@@ -157,8 +157,8 @@
                     <option value="7">7th</option>
                     <option value="8">8th</option>
                 </select>
-                <button id="search-btn">Search</button>
-            </div>
+                <button id="search-btn" type ="submit">Search</button>
+            </form>
             <div class="card p-3">
                 <table>
                     <thead>

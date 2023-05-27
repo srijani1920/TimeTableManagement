@@ -37,14 +37,14 @@
                 <thead>
                     <tr>
                         <th scope="col">Subject Name</th>
+                        <th scope="col">Faculty Name</th>
                         <th scope="col">Subject Code</th>
-                        <th scope="col">Lecturer ID</th>
                         <th scope="col">Classes/Week</th>
                     </tr>
                 </thead>
                 <tbody>
                     <% subjectData.forEach(function(item){%>
-                      <form  action="deletesubject" method="post">
+                      <form  action="/deletesubject" method="post">
 
 
                     <tr>
@@ -52,7 +52,7 @@
                         <td contenteditable="true"><%=item.fname%></td>
                         <td contenteditable="true"><%=item.subcode%></td>
                         <td contenteditable="true"><%=item.classes%></td>
-                        <td><button class="btn btn-danger btn-sm delete-btn"type="submit"onclick="this.form.submit()">Delete</button></td>
+                        <td><button class="btn btn-danger btn-sm delete-btn"type="submit"name="sid" value="<%=item.subcode%>"onclick="this.form.submit()">Delete</button></td>
                     </tr>
                     <input type="hidden" name="sid" value="<%=item.subcode%>">
                     </form>
